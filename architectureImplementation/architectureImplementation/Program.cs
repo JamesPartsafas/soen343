@@ -24,6 +24,10 @@ namespace architectureImplementation
             // Request translator session with incorrect data
             var failedTranslationResult = member.RequestTranslatorSession(null, "French", new DateTime(2023, 1, 1, 12, 30, 0));
             Console.WriteLine(failedTranslationResult);
+
+            // Request to be a volunteer for an event
+            var volutneerResult = member.VolunteerForEvent();
+            Console.WriteLine(volutneerResult);
         }
     }
 }
