@@ -18,17 +18,5 @@ namespace architectureImplementation
         {
             return new TranslatorManager().CreateTranslatorSession(location, language, dateTime);
         }
-
-        public string VolunteerForEvent()
-        {
-            var em = new EventManager();
-            var upcomingEvents = em.SearchUpcomingEvents();
-            var chosenEvent = upcomingEvents.FirstOrDefault();
-
-            if (chosenEvent == null)
-                return "No events were found";
-
-            return em.VolunteerForEvent(this, chosenEvent);
-        }
     }
 }
