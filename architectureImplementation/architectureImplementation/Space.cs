@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace architectureImplementation
 {
-    // Holds information about a location
+    // Holds information about a location that is used as data in for use cases 9 and 10.
+    // It is referenced in FoodAssistanceManager, FoodRequest, TranslatorManager, TranslatorSession
     class Space
     {
         private string streetName;
