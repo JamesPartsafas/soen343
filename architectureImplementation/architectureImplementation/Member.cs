@@ -22,11 +22,22 @@ namespace architectureImplementation
         public string VolunteerForEvent()
         {
             var em = new EventManager();
-            var upcomingEvents = em.SearchUpcomingEvents();
-            var chosenEvent = upcomingEvents.FirstOrDefault();
+            var upcomingEvents = em.SearchUpcomingEvents().ToArray();
+            
+            Console.WriteLine();
+            
+            for (int i = 0; i < upcomingEvents.Count(); i++)
+                Console.WriteLine(i + ") {0,5} {1,10} {2,-10}", upcomingEvents[i].date, upcomingEvents[i].name, upcomingEvents[i].description);
 
-            if (chosenEvent == null)
-                return "No events were found";
+            Console.Write("\nPlease enter the number of event you want to volunteer for: ");
+            int id = Convert.ToInt32(Console.ReadLine());
+
+            if (id < 0 || id >= upcomingEvents.Length)
+            {
+                return "Invalid Data Input";
+            }
+
+            var chosenEvent = upcomingEvents[id];
 
             return em.VolunteerForEvent(this, chosenEvent);
         }
